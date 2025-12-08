@@ -254,7 +254,7 @@ func (r taskRepository) InProgress(id uint64) (domain.Task, error) {
 }
 
 func (r taskRepository) UpdateDeadline(id uint64, deadline *time.Time) error {
-	// Перевіряємо чи таск існує і не видалений
+
 	var t task
 	err := r.coll.Find(db.Cond{"id": id, "deleted_date": nil}).One(&t)
 	if err != nil {
@@ -264,7 +264,6 @@ func (r taskRepository) UpdateDeadline(id uint64, deadline *time.Time) error {
 		return err
 	}
 
-	// Готуємо update
 	updateFields := map[string]interface{}{
 		"updated_date": time.Now(),
 	}
@@ -275,6 +274,5 @@ func (r taskRepository) UpdateDeadline(id uint64, deadline *time.Time) error {
 		updateFields["deadline"] = *deadline
 	}
 
-	// Оновлюємо
 	return r.coll.Find(db.Cond{"id": id}).Update(updateFields)
 }
