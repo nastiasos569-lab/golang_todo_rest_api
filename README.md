@@ -1,15 +1,20 @@
 Todo REST API (Go)
+
 This project is a backend service for a Todo application built with Go.
- Features
+
+Features
 - Create, read, update and delete tasks (CRUD)
 - REST API architecture
 - JSON data handling
+
 Technologies
 - Go (Golang)
 - HTTP / REST API
 - JSON
- Testing
+
+Testing
 - API testing using Postman
 - Validation of status codes and responses
- Purpose
+
+Purpose
 This project was created to practice backend development and API testing.
